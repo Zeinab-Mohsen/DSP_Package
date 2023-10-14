@@ -20,7 +20,7 @@ def plot_data(
 ):
     ax.clear()
     # Set plot parameters
-    # ax.figure.set_size_inches(fig_size[0], fig_size[1])
+    ax.figure.set_size_inches(fig_size[0], fig_size[1])
     # plt.subplot(sub_plot[0], sub_plot[1], sub_plot[2])
 
     # Create plot based on plot type

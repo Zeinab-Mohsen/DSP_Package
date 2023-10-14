@@ -6,7 +6,14 @@ import numpy as np
 from Utils.plot_graph import plot_data
 
 
-def generate_sin_signal(amplitude, sampling_frequency, analog_frequency, phase_shift):
+def generate_sin_signal(
+    amplitude,
+    sampling_frequency,
+    analog_frequency,
+    phase_shift,
+    ax=None,
+    canvas=None,
+):
     duration = 1.0
 
     # Generate the time axis
@@ -23,12 +30,21 @@ def generate_sin_signal(amplitude, sampling_frequency, analog_frequency, phase_s
         x_label="Time",
         y_label="Amplitude",
         sub_plot=[1, 1, 1],
+        ax=ax,
+        canvas=canvas,
     )
 
     return signal
 
 
-def generate_cos_signal(amplitude, sampling_frequency, analog_frequency, phase_shift):
+def generate_cos_signal(
+    amplitude,
+    sampling_frequency,
+    analog_frequency,
+    phase_shift,
+    ax=None,
+    canvas=None,
+):
     duration = 1.0
 
     # Generate the time axis
@@ -39,13 +55,15 @@ def generate_cos_signal(amplitude, sampling_frequency, analog_frequency, phase_s
 
     # Plot the signal
     plot_data(
-    x=time,
-    y=signal,
-    plot_type="continuous",
-    title="Sin Wave Signal",
-    x_label="Time",
-    y_label="Amplitude",
-    sub_plot=[1, 1, 1],
+        x=time,
+        y=signal,
+        plot_type="continuous",
+        title="Cos Wave Signal",
+        x_label="Time",
+        y_label="Amplitude",
+        sub_plot=[1, 1, 1],
+        ax=ax,
+        canvas=canvas,
     )
 
     return signal
