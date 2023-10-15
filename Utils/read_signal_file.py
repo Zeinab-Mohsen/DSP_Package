@@ -6,6 +6,7 @@ def read_signal_text_file(path):
 
     return file_contents
 
+# TODO: Create a browse tab
 
 def seperate_file_date(path):
     file_contents = read_signal_text_file(path)
