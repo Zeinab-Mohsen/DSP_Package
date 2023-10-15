@@ -29,7 +29,6 @@ def generate_sin_signal(
         title="Sin Wave Signal",
         x_label="Time",
         y_label="Amplitude",
-        sub_plot=[1, 1, 1],
         ax=ax,
         canvas=canvas,
     )
@@ -61,7 +60,6 @@ def generate_cos_signal(
         title="Cos Wave Signal",
         x_label="Time",
         y_label="Amplitude",
-        sub_plot=[1, 1, 1],
         ax=ax,
         canvas=canvas,
     )
