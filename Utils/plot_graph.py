@@ -29,5 +29,6 @@ def plot_data(
     ax.set_title(title)
     ax.set_xlabel(x_label)
     ax.set_ylabel(y_label)
+    ax.grid(True)
 
     canvas.draw()
