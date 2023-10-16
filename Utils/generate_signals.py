@@ -15,10 +15,7 @@ def generate_sin_signal(
     canvas=None,
 ):
     # Generate the time axis
-    if plot_type == "continuous":
-        time = np.linspace(0, 1, sampling_frequency)
-    elif plot_type == "discrete":
-        time = np.arange(0, 1, 1 / sampling_frequency)
+    time = np.arange(0, 1, 1 / sampling_frequency)
 
     # Generate the sine wave signal
     signal = amplitude * np.sin(2 * np.pi * analog_frequency * time + phase_shift)
@@ -47,10 +44,9 @@ def generate_cos_signal(
     ax=None,
     canvas=None,
 ):
-    duration = 1.0
 
     # Generate the time axis
-    time = np.arange(0, duration, 1 / sampling_frequency)
+    time = np.arange(0, 1, 1 / sampling_frequency)
 
     # Generate the sine wave signal
     signal = amplitude * np.cos(2 * np.pi * analog_frequency * time + phase_shift)
