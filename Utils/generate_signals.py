@@ -1,9 +1,8 @@
+from Utils.plot_graph import plot_data
+import numpy as np
 import sys
 
 sys.path.append("../")
-
-import numpy as np
-from Utils.plot_graph import plot_data
 
 
 def generate_sin_signal(
@@ -20,8 +19,10 @@ def generate_sin_signal(
     time = np.arange(0, duration, 1 / sampling_frequency)
 
     # Generate the sine wave signal
-    signal = amplitude * np.sin(2 * np.pi * analog_frequency * time + phase_shift)
+    signal = amplitude * \
+        np.sin(2 * np.pi * analog_frequency * time + phase_shift)
 
+    # plot signal
     plot_data(
         x=time,
         y=signal,
@@ -50,9 +51,10 @@ def generate_cos_signal(
     time = np.arange(0, duration, 1 / sampling_frequency)
 
     # Generate the sine wave signal
-    signal = amplitude * np.cos(2 * np.pi * analog_frequency * time + phase_shift)
+    signal = amplitude * \
+        np.cos(2 * np.pi * analog_frequency * time + phase_shift)
 
-    # Plot the signal
+    # Plot signal
     plot_data(
         x=time,
         y=signal,
