@@ -8,12 +8,23 @@ import tkinter as tk
 import sys
 sys.path.append('../')
 
-lable_font = "Times New Roman", 25
-button_font = "Times New Roman", 18
-entry_font = "Times New Roman", 15
+label_font = ("Times New Roman", 25)
+button_font = ("Times New Roman", 18)
+entry_font = ("Times New Roman", 15)
 
+def show_read_signal_file_frame():
+    # Hide other frames
+    generate_signal_frame.pack_forget()
+    # Show the read signal file frame
+    read_signal_file_frame.pack()
 
-def brows_button_command():
+def show_generate_signal_frame():
+    # Hide other frames
+    read_signal_file_frame.pack_forget()
+    # Show the generate signal frame
+    generate_signal_frame.pack()
+
+def browse_button_command():
     data, signal_type, is_periodic, n_samples = seperate_file_date()
     # Extract x and y values from data
     x = [point[0] for point in data]
@@ -24,60 +35,59 @@ def brows_button_command():
     plot_data(x=x, y=y, plot_type="discrete", title="Discrete Representation",
               x_label="Time", y_label="Amplitude", ax=ax_discrete, canvas=canvas_discrete)
 
-
-# create root window
+# Create root window
 root = tk.Tk()
 root.title("DSP Package")
+root.geometry("1400x800")
 
-# add Lable
-label = tk.Label(root, text="Read Signal File", font=lable_font)
+# Add menubar
+menubar = tk.Menu(root)
+Task_1_menu = tk.Menu(menubar, tearoff=0)
+Task_1_menu.add_command(label="Read Signal File", command=show_read_signal_file_frame)
+Task_1_menu.add_command(label="Generate Signal", command=show_generate_signal_frame)
+menubar.add_cascade(label="Task 1", menu=Task_1_menu)
+root.config(menu=menubar)
+
+# Create frames
+read_signal_file_frame = tk.Frame(root)
+generate_signal_frame = tk.Frame(root)
+
+# Initialize frames
+show_read_signal_file_frame()
+
+# Add Label
+label = tk.Label(read_signal_file_frame, text="Read Signal File", font=label_font)
 label.pack(padx=15, pady=15)
 
-# add brows frame
-brows_frame = tk.Frame(root)
+# Add brows frame
+brows_frame = tk.Frame(read_signal_file_frame)
 
-# # location lable
-# location_label = tk.Label(brows_frame, text="File location:", font=button_font)
-# location_label.grid(padx=10, pady=10, row=0, column=0)
-
-# # add location entry
-# location_entry = tk.Entry(brows_frame, font=entry_font, width=50).grid(
-#     padx=10, pady=10, row=0, column=1)
-
-# # add brows button
-# brows_button = tk.Button(brows_frame, text="Brows", font=(
-#     "Times New Roman", 12)).grid(padx=10, pady=10, row=0, column=2)
-
-# add button read file
-generate_button = tk.Button(brows_frame, text="Read File", font=button_font,
-                            width=20, command=brows_button_command).grid(padx=10, pady=10, row=1, column=1)
+# Add button read file
+generate_button = tk.Button(brows_frame, text="Read File", font=button_font, width=20, command=browse_button_command)
+generate_button.grid(padx=10, pady=10, row=1, column=1)
 
 brows_frame.pack(padx=15, pady=5)
 
-# add signal plot frame
-signals_representation_frame = tk.Frame(root)
+# Add signal plot frame
+signals_representation_frame = tk.Frame(read_signal_file_frame)
 signals_representation_frame.pack(padx=15, pady=5)
 
-# add continous signal representation frame
-continous_signal_representation_frame = tk.Frame(signals_representation_frame)
-continous_signal_representation_frame.pack(
-    padx=30, pady=2, side=tk.LEFT, expand=True, fill=tk.BOTH)
+# Add continuous signal representation frame
+continuous_signal_representation_frame = tk.Frame(signals_representation_frame)
+continuous_signal_representation_frame.pack(padx=30, pady=2, side=tk.LEFT, expand=True, fill=tk.BOTH)
 
-# add discrete signal representation frame
+# Add discrete signal representation frame
 discrete_signal_representation_frame = tk.Frame(signals_representation_frame)
-discrete_signal_representation_frame.pack(
-    padx=30, pady=2, side=tk.LEFT, expand=True, fill=tk.BOTH)
+discrete_signal_representation_frame.pack(padx=30, pady=2, side=tk.LEFT, expand=True, fill=tk.BOTH)
 
-# add empty figure for continous signal representation
+# Add empty figure for continuous signal representation
 fig, ax_continuous = plt.subplots()
-canvas_continuous = FigureCanvasTkAgg(
-    fig, continous_signal_representation_frame)
+canvas_continuous = FigureCanvasTkAgg(fig, continuous_signal_representation_frame)
 canvas_continuous.get_tk_widget().pack()
 
-# add empty figure for discrete signal representation
+# Add empty figure for discrete signal representation
 fig, ax_discrete = plt.subplots()
 canvas_discrete = FigureCanvasTkAgg(fig, discrete_signal_representation_frame)
 canvas_discrete.get_tk_widget().pack()
-
 
 root.mainloop()
