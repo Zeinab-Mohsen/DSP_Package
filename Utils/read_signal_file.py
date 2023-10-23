@@ -1,12 +1,10 @@
-
-import os
-from tkinter import ttk, filedialog
+from tkinter import filedialog
 from tkinter.filedialog import askopenfile
 
 
 def read_signal_text_file():
     file_contents = []
-    file = filedialog.askopenfile(mode='r')
+    file = filedialog.askopenfile(mode="r")
     if file:
         filepath = file.name
         for line in file:
@@ -15,7 +13,7 @@ def read_signal_text_file():
     return file_contents
 
 
-def seperate_file_date():
+def seperate_file_data():
     file_contents = read_signal_text_file()
     signal_type = int(file_contents[0])
     is_periodic = int(file_contents[1])
