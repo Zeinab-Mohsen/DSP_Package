@@ -54,10 +54,10 @@ def add_signals():
     result = [x + y for x, y in zip(y1, y2)]
 
     print("Addition of signal 1 + signal 2")
-    SignalSamplesAreEqual("Output\Task_2\Signal1+signal2.txt\n", 0, result)
+    SignalSamplesAreEqual("Output\Task_2\Signal1+signal2.txt", 0, result)
 
     print("Addition of signal 1 + signal 3")
-    SignalSamplesAreEqual("Output\Task_2\signal1+signal3.txt\n", 0, result)
+    SignalSamplesAreEqual("Output\Task_2\signal1+signal3.txt", 0, result)
 
 
     plot_data(

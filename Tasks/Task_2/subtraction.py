@@ -13,6 +13,8 @@ sys.path.append("../")
 
 subtraction_frame = tk.Frame(root)
 
+subtraction_label = CustomLabel(subtraction_frame, text="Subtraction")
+subtraction_label.pack()
 
 def browse_button_command(title, ax, canvas):
     data, signal_type, is_periodic, n_samples = seperate_file_data()
@@ -48,13 +50,13 @@ def subtract_signals():
     y2 = y2 + [0] * (max_len - len(y2))
 
     # Add the two lists together element-wise
-    result = [x - y for x, y in zip(y1, y2)]
+    result = [y - x for x, y in zip(y1, y2)]
 
     print("Subtraction of signal 1 - signal 2")
-    SignalSamplesAreEqual("Output\Task_2\signal1-signal2.txt\n", 0, result)
+    SignalSamplesAreEqual("Output\Task_2\signal1-signal2.txt", 0, result)
 
     print("Subtraction of signal 1 - signal 3")
-    SignalSamplesAreEqual("Output\Task_2\signal1-signal3.txt\n", 0, result)
+    SignalSamplesAreEqual("Output\Task_2\signal1-signal3.txt", 0, result)
 
     plot_data(
         x=x1,
