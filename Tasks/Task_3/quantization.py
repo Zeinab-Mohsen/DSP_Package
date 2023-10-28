@@ -9,6 +9,11 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
 from GUI.labeled_entry import LabeledEntry
 from GUI.Utils.entry_validation import validate_num
+import numpy as np
+from Utils.round_numbers import round_with_exponent
+from Test.Task_3.QuanTest1 import QuantizationTest1
+from Test.Task_3.QuanTest2 import QuantizationTest2
+
 import sys
 
 sys.path.append("../")
@@ -45,58 +50,89 @@ def get_selected_option():
     return selected
 
 
+
 def quantization_signals():
     bits_or_levels = get_values()
 
     selected_option = get_selected_option()
 
-    # data = browse_button_command()
-    # x1 = [point[0] for point in data]
-    # y1 = [point[1] for point in data]
+    data = browse_button_command()
+    x = [point[0] for point in data]
+    y = [point[1] for point in data]
 
-    y1 = [-1.22, 1.5, 3.24, 3.94, 2.20, -1.10, -2.26, -1.88, -1.2]
+    # y = [-1.22, 1.5, 3.24, 3.94, 2.20, -1.10, -2.26, -1.88, -1.2]
 
-    min_val = min(y1)
-    max_val = max(y1)
+    min_val = min(y)
+    max_val = max(y)
 
     levels = 0
+    bits = 0
     # Bits
     if selected_option == 1:
+        bits = bits_or_levels
         levels = 2 ** bits_or_levels
     # Levels
     elif selected_option == 2:
+        bits = int(np.log2(bits_or_levels))
         levels = bits_or_levels
+
+    print(bits)
     
     delta = (max_val - min_val) / levels
 
-    intervals_midpoints = [] 
-    start = min_val + (delta / 2)
+    intervals = [] 
+    midpoints = []
     for i in range(levels):
-        intervals_midpoints.append(start)
-        start += delta
+        interval = []
+        start = min_val + (delta * i)
+        interval.append(round_with_exponent(start, 3))
+
+        end = min_val + (delta * (i + 1)) 
+        interval.append(round_with_exponent(end, 3))
+
+        intervals.append(interval)
+
+        mid_point = (start + end) / 2
+        midpoints.append(round_with_exponent(mid_point, 3))
     
-    print(intervals_midpoints)
+    print(intervals)
+    print(midpoints)
 
+    result_quantization = []
+    result_interval = []
+    result_encoded = []
+    result_quantization_error = []
+    quantization_error = 0 
+    for i in range(len(y)):
+        for j in range(len(intervals)):
+            if y[i] >= intervals[j][0] and y[i] <= intervals[j][1]:
+                result_quantization.append(midpoints[j])
+                result_interval.append(j + 1)
+                result_encoded.append(format(j, f'0{bits}b'))
+                result_quantization_error.append(midpoints[j] - y[i])
+                quantization_error += (midpoints[j] - y[i]) ** 2
+                break
+            else:
+                print(y[i])
 
- 
-    # # result = quantization.quantize(y1, bits_or_levels)
+    quantization_error /= len(y)
 
-    # # print("Normalizing signal 1")
-    # # SignalSamplesAreEqual("Output\Task_2\\normalize of signal 1 -- output.txt", 0, result)
+    print("Test 1")
+    QuantizationTest1("Output/Task_3/Quan1_Out.txt",result_encoded,result_quantization)   
+   
+    print("Test 2")
+    QuantizationTest2("Output/Task_3/Quan2_Out.txt",result_interval,result_encoded,result_quantization,result_quantization_error)
 
-    # # print("Normalizing signal 2")
-    # # SignalSamplesAreEqual("Output\Task_2\\normlize signal 2 -- output.txt", 0, result)
-
-    # plot_data(
-    #     x=result,
-    #     y=y1,
-    #     plot_type="discrete",
-    #     title="Quantized Signal",
-    #     x_label="Time",
-    #     y_label="Amplitude",
-    #     ax=ax,
-    #     canvas=canvas,
-    # )
+    plot_data(
+        x=result_quantization,
+        y=result_interval,
+        plot_type="continuous",
+        title="Quantized Signal",
+        x_label="Time",
+        y_label="Amplitude",
+        ax=ax,
+        canvas=canvas,
+    )
 
 
 radio_button_frame = tk.Frame(quantization_frame)
@@ -132,7 +168,6 @@ quantiz_button = CustomButton(
     radio_button_frame, command=quantization_signals, text="Quantize"
 )
 quantiz_button.grid(row=0, column=3, padx=40)
-
 
 
 # Add empty figure for continuous signal representation
