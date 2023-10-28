@@ -10,6 +10,7 @@ from GUI.Utils.main_frames_manipulation import (
     show_shifting_frame,
     show_squaring_frame,
     show_subtraction_frame,
+    show_quantization_frame,
 )
 
 
@@ -46,5 +47,12 @@ Task_2_menu.add_command(
     label="Subtraction", command=show_subtraction_frame, font=item_font
 )
 menubar.add_cascade(label="Task 2", menu=Task_2_menu, font=menu_font)
+
+Task_3_menu = tk.Menu(menubar, tearoff=0)
+Task_3_menu.add_command(
+    label="Quantizatng Sginal", command=show_quantization_frame, font=item_font
+)
+menubar.add_cascade(label="Task 3", menu=Task_3_menu, font=menu_font)
+
 
 root.config(menu=menubar)

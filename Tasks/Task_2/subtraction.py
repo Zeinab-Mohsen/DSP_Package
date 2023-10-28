@@ -50,7 +50,7 @@ def subtract_signals():
     y2 = y2 + [0] * (max_len - len(y2))
 
     # Add the two lists together element-wise
-    result = [y - x for x, y in zip(y1, y2)]
+    result = [x - y for x, y in zip(y1, y2)]
 
     print("Subtraction of signal 1 - signal 2")
     SignalSamplesAreEqual("Output\Task_2\signal1-signal2.txt", 0, result)
