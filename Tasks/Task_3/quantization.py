@@ -36,7 +36,6 @@ def browse_button_command():
 def get_values():
     try:
         bits_or_levels = int(levels_or_bits_entry.get())
-        print(bits_or_levels)
     except Exception as e:
         tk.messagebox.showerror("Error", f"The number of bits_or_levels must be filled.")
         return
@@ -46,7 +45,6 @@ def get_values():
 
 def get_selected_option():
     selected = selected_option.get()
-    print("Selected option:", selected)
     return selected
 
 
@@ -60,7 +58,6 @@ def quantization_signals():
     x = [point[0] for point in data]
     y = [point[1] for point in data]
 
-    # y = [-1.22, 1.5, 3.24, 3.94, 2.20, -1.10, -2.26, -1.88, -1.2]
 
     min_val = min(y)
     max_val = max(y)
@@ -76,7 +73,6 @@ def quantization_signals():
         bits = int(np.log2(bits_or_levels))
         levels = bits_or_levels
 
-    print(bits)
     
     delta = (max_val - min_val) / levels
 
@@ -95,9 +91,6 @@ def quantization_signals():
         mid_point = (start + end) / 2
         midpoints.append(round_with_exponent(mid_point, 3))
     
-    print(intervals)
-    print(midpoints)
-
     result_quantization = []
     result_interval = []
     result_encoded = []
@@ -112,8 +105,7 @@ def quantization_signals():
                 result_quantization_error.append(midpoints[j] - y[i])
                 quantization_error += (midpoints[j] - y[i]) ** 2
                 break
-            else:
-                print(y[i])
+
 
     quantization_error /= len(y)
 
@@ -174,4 +166,4 @@ quantiz_button.grid(row=0, column=3, padx=40)
 fig, ax = plt.subplots()
 fig.set_size_inches(20, 5)
 canvas = FigureCanvasTkAgg(fig, quantization_frame)
-canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)    
+canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)   
