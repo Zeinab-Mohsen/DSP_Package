@@ -117,7 +117,7 @@ def quantization_signals():
 
     plot_data(
         x=result_quantization,
-        y=result_interval,
+        y=y,
         plot_type="continuous",
         title="Quantized Signal",
         x_label="Time",
@@ -167,3 +167,4 @@ fig, ax = plt.subplots()
 fig.set_size_inches(20, 5)
 canvas = FigureCanvasTkAgg(fig, quantization_frame)
 canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)   
+plt.close(fig)
