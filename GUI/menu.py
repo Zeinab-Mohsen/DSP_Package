@@ -11,6 +11,9 @@ from GUI.Utils.main_frames_manipulation import (
     show_squaring_frame,
     show_subtraction_frame,
     show_quantization_frame,
+    show_task4_frame,
+    show_dc_frame,
+    show_dct_frame
 )
 
 
@@ -53,6 +56,19 @@ Task_3_menu.add_command(
     label="Quantizatng Sginal", command=show_quantization_frame, font=item_font
 )
 menubar.add_cascade(label="Task 3", menu=Task_3_menu, font=menu_font)
+
+Task_4_menu = tk.Menu(menubar, tearoff=0)
+Task_4_menu.add_command(label="DFT&IDFT", command=show_task4_frame, font=item_font)
+menubar.add_cascade(label="Task 4", menu=Task_4_menu, font=menu_font)
+
+Task_5_menu = tk.Menu(menubar, tearoff=0)
+Task_5_menu.add_command(
+    label="DCT", command=show_dct_frame, font=item_font
+)
+Task_5_menu.add_command(
+    label="Remove DC", command=show_dc_frame, font=item_font
+)
+menubar.add_cascade(label="Task 5", menu=Task_5_menu, font=menu_font)
 
 
 root.config(menu=menubar)

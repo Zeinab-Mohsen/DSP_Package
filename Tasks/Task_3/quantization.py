@@ -6,7 +6,6 @@ from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
 from GUI.labeled_entry import LabeledEntry
 from GUI.Utils.entry_validation import validate_num
 import numpy as np
@@ -25,6 +24,7 @@ quantization_label.pack()
 
 validate_func = quantization_frame.register(validate_num)
 
+
 def browse_button_command():
     data, signal_type, is_periodic, n_samples = seperate_file_data()
     # Extract x and y values from data
@@ -37,7 +37,9 @@ def get_values():
     try:
         bits_or_levels = int(levels_or_bits_entry.get())
     except Exception as e:
-        tk.messagebox.showerror("Error", f"The number of bits_or_levels must be filled.")
+        tk.messagebox.showerror(
+            "Error", f"The number of bits_or_levels must be filled."
+        )
         return
 
     return bits_or_levels
@@ -46,7 +48,6 @@ def get_values():
 def get_selected_option():
     selected = selected_option.get()
     return selected
-
 
 
 def quantization_signals():
@@ -58,7 +59,6 @@ def quantization_signals():
     x = [point[0] for point in data]
     y = [point[1] for point in data]
 
-
     min_val = min(y)
     max_val = max(y)
 
@@ -67,53 +67,59 @@ def quantization_signals():
     # Bits
     if selected_option == 1:
         bits = bits_or_levels
-        levels = 2 ** bits_or_levels
+        levels = 2**bits_or_levels
     # Levels
     elif selected_option == 2:
         bits = int(np.log2(bits_or_levels))
         levels = bits_or_levels
 
-    
     delta = (max_val - min_val) / levels
 
-    intervals = [] 
+    intervals = []
     midpoints = []
     for i in range(levels):
         interval = []
         start = min_val + (delta * i)
         interval.append(round_with_exponent(start, 3))
 
-        end = min_val + (delta * (i + 1)) 
+        end = min_val + (delta * (i + 1))
         interval.append(round_with_exponent(end, 3))
 
         intervals.append(interval)
 
         mid_point = (start + end) / 2
         midpoints.append(round_with_exponent(mid_point, 3))
-    
+
     result_quantization = []
     result_interval = []
     result_encoded = []
     result_quantization_error = []
-    quantization_error = 0 
+    quantization_error = 0
     for i in range(len(y)):
         for j in range(len(intervals)):
             if y[i] >= intervals[j][0] and y[i] <= intervals[j][1]:
                 result_quantization.append(midpoints[j])
                 result_interval.append(j + 1)
-                result_encoded.append(format(j, f'0{bits}b'))
+                result_encoded.append(format(j, f"0{bits}b"))
                 result_quantization_error.append(midpoints[j] - y[i])
                 quantization_error += (midpoints[j] - y[i]) ** 2
                 break
 
-
     quantization_error /= len(y)
 
     print("Test 1")
-    QuantizationTest1("Output/Task_3/Quan1_Out.txt",result_encoded,result_quantization)   
-   
+    QuantizationTest1(
+        "Output/Task_3/Quan1_Out.txt", result_encoded, result_quantization
+    )
+
     print("Test 2")
-    QuantizationTest2("Output/Task_3/Quan2_Out.txt",result_interval,result_encoded,result_quantization,result_quantization_error)
+    QuantizationTest2(
+        "Output/Task_3/Quan2_Out.txt",
+        result_interval,
+        result_encoded,
+        result_quantization,
+        result_quantization_error,
+    )
 
     plot_data(
         x=result_quantization,
@@ -166,5 +172,5 @@ quantiz_button.grid(row=0, column=3, padx=40)
 fig, ax = plt.subplots()
 fig.set_size_inches(20, 5)
 canvas = FigureCanvasTkAgg(fig, quantization_frame)
-canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)   
+canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True, side=tk.BOTTOM)
 plt.close(fig)

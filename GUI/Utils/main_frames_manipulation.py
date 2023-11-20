@@ -11,9 +11,15 @@ from Tasks.Task_2.subtraction import subtraction_frame
 
 from Tasks.Task_3.quantization import quantization_frame
 
+from Tasks.Task_4.DFT_IDFT import task4_frame
+
+from Tasks.Task_5.DC import dc_frame
+from Tasks.Task_5.DCT import dct_frame
+
 import sys
 
 sys.path.append("../")
+
 
 def show_read_signal_file_frame():
     # Show the read signal file frame
@@ -30,9 +36,13 @@ def show_read_signal_file_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
 
 
 def show_generate_signal_frame():
@@ -50,9 +60,14 @@ def show_generate_signal_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_accumulation_frame():
     # Show the accumulation frame
@@ -69,9 +84,14 @@ def show_accumulation_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-    
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_addition_frame():
     # Show the addition frame
@@ -88,9 +108,14 @@ def show_addition_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_multiplication_frame():
     # Show the multiplication frame
@@ -107,9 +132,14 @@ def show_multiplication_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_normalization_frame():
     # Show the normalization frame
@@ -126,9 +156,14 @@ def show_normalization_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_shifting_frame():
     # Show the shifting frame
@@ -145,9 +180,14 @@ def show_shifting_frame():
     normalization_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_squaring_frame():
     # Show the squaring frame
@@ -164,9 +204,14 @@ def show_squaring_frame():
     normalization_frame.pack_forget()
     shifting_frame.pack_forget()
     subtraction_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
 
 def show_subtraction_frame():
     # Show the subtraction frame
@@ -183,12 +228,17 @@ def show_subtraction_frame():
     normalization_frame.pack_forget()
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
-
     # Task 3 frames
     quantization_frame.pack_forget()
-    
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
+
 def show_quantization_frame():
-    # Show the read signal file frame
+    # Show quantization frame
     quantization_frame.pack()
 
     # Hide other frames
@@ -203,3 +253,79 @@ def show_quantization_frame():
     shifting_frame.pack_forget()
     squaring_frame.pack_forget()
     subtraction_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
+
+def show_task4_frame():
+    # Show dft frame
+    task4_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
+
+def show_dc_frame():
+    # Show dc frame
+    dc_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+
+
+def show_dct_frame():
+    # Show dct frame
+    dct_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dc_frame.pack_forget()
