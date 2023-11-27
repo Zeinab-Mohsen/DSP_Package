@@ -13,7 +13,13 @@ from GUI.Utils.main_frames_manipulation import (
     show_quantization_frame,
     show_task4_frame,
     show_dc_frame,
-    show_dct_frame
+    show_dct_frame,
+    show_moving_average_frame,
+    show_sharpening_frame,
+    show_folding_frame,
+    show_delaying_advancing_frame,
+    show_delaying_advancing_folding_frame,
+    show_remove_dc_frame,
 )
 
 
@@ -62,13 +68,30 @@ Task_4_menu.add_command(label="DFT&IDFT", command=show_task4_frame, font=item_fo
 menubar.add_cascade(label="Task 4", menu=Task_4_menu, font=menu_font)
 
 Task_5_menu = tk.Menu(menubar, tearoff=0)
-Task_5_menu.add_command(
-    label="DCT", command=show_dct_frame, font=item_font
-)
-Task_5_menu.add_command(
-    label="Remove DC", command=show_dc_frame, font=item_font
-)
+Task_5_menu.add_command(label="DCT", command=show_dct_frame, font=item_font)
+Task_5_menu.add_command(label="Remove DC", command=show_dc_frame, font=item_font)
 menubar.add_cascade(label="Task 5", menu=Task_5_menu, font=menu_font)
+
+Task_6_menu = tk.Menu(menubar, tearoff=0)
+Task_6_menu.add_command(
+    label="Moving Average", command=show_moving_average_frame, font=item_font
+)
+Task_6_menu.add_command(
+    label="Sharpening", command=show_sharpening_frame, font=item_font
+)
+Task_6_menu.add_command(
+    label="Delaying or advancing a signal ",
+    command=show_delaying_advancing_frame,
+    font=item_font,
+)
+Task_6_menu.add_command(label="Folding", command=show_folding_frame, font=item_font)
+Task_6_menu.add_command(
+    label="Delaying or advancing a folded signal",
+    command=show_delaying_advancing_folding_frame,
+    font=item_font,
+)
+Task_6_menu.add_command(label="Remove DC", command=show_remove_dc_frame, font=item_font)
+menubar.add_cascade(label="Task 6", menu=Task_6_menu, font=menu_font)
 
 
 root.config(menu=menubar)

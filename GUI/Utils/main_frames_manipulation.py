@@ -16,6 +16,13 @@ from Tasks.Task_4.DFT_IDFT import task4_frame
 from Tasks.Task_5.DC import dc_frame
 from Tasks.Task_5.DCT import dct_frame
 
+from Tasks.Task_6.delaying_advancing_folding import delaying_advancing_folding_frame
+from Tasks.Task_6.delaying_advancing import delaying_advancing_frame
+from Tasks.Task_6.folding import folding_frame
+from Tasks.Task_6.moving_average import moving_average_frame
+from Tasks.Task_6.remove_dc import remove_dc_frame
+from Tasks.Task_6.sharpening import sharpening_frame
+
 import sys
 
 sys.path.append("../")
@@ -43,6 +50,13 @@ def show_read_signal_file_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_generate_signal_frame():
@@ -67,6 +81,13 @@ def show_generate_signal_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_accumulation_frame():
@@ -91,6 +112,13 @@ def show_accumulation_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_addition_frame():
@@ -115,6 +143,13 @@ def show_addition_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_multiplication_frame():
@@ -139,6 +174,13 @@ def show_multiplication_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_normalization_frame():
@@ -163,6 +205,13 @@ def show_normalization_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_shifting_frame():
@@ -187,6 +236,13 @@ def show_shifting_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_squaring_frame():
@@ -211,6 +267,13 @@ def show_squaring_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_subtraction_frame():
@@ -235,6 +298,13 @@ def show_subtraction_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_quantization_frame():
@@ -258,6 +328,13 @@ def show_quantization_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_task4_frame():
@@ -281,6 +358,13 @@ def show_task4_frame():
     # task 5 frames
     dct_frame.pack_forget()
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_dc_frame():
@@ -305,6 +389,13 @@ def show_dc_frame():
     task4_frame.pack_forget()
     # task 5 frames
     dct_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
 
 
 def show_dct_frame():
@@ -329,3 +420,196 @@ def show_dct_frame():
     task4_frame.pack_forget()
     # task 5 frames
     dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+
+def show_delaying_advancing_folding_frame():
+    # Show delaying_advancing_folding frame
+    delaying_advancing_folding_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+
+    # Task 3 frames
+    quantization_frame.pack_forget()
+
+    # task 4 frames
+    task4_frame.pack_forget()
+
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+
+    # task 6 frames
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+def show_delaying_advancing_frame():
+    # Show delaying_advancing frame
+    delaying_advancing_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+def show_folding_frame():
+    # Show folding frame
+    folding_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+def show_moving_average_frame():
+    # Show moving_average frame
+    moving_average_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+def show_remove_dc_frame():
+    # Show remove_dc frame
+    remove_dc_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    sharpening_frame.pack_forget()
+
+def show_sharpening_frame():
+    # Show sharpening frame
+    sharpening_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
