@@ -20,6 +20,7 @@ from GUI.Utils.main_frames_manipulation import (
     show_delaying_advancing_frame,
     show_delaying_advancing_folding_frame,
     show_remove_dc_frame,
+    show_convolution_frame,
 )
 
 
@@ -92,6 +93,10 @@ Task_6_menu.add_command(
 )
 Task_6_menu.add_command(label="Remove DC", command=show_remove_dc_frame, font=item_font)
 menubar.add_cascade(label="Task 6", menu=Task_6_menu, font=menu_font)
+
+Task_7_menu = tk.Menu(menubar, tearoff=0)
+Task_7_menu.add_command(label="Convolution", command=show_convolution_frame, font=item_font)
+menubar.add_cascade(label="Task 7", menu=Task_7_menu, font=menu_font)
 
 
 root.config(menu=menubar)
