@@ -36,19 +36,30 @@ def browse_button_command(title, ax, canvas):
 
 
 def convolution():
-    x1, y1 = browse_button_command("First Signal", ax_signal1, canvas_signal1)
-    x2, y2 = browse_button_command("Second Signal", ax_signal2, canvas_signal2)
+    input_indices1 , input_samples1 = browse_button_command("First Signal", ax_signal1, canvas_signal1)
+    input_indices2 , input_samples2 = browse_button_command("Second Signal", ax_signal2, canvas_signal2)
+    # Initialize result arrays with zeros
+    result_indices = []
+    result_samples = [0] * (len(input_samples1) + len(input_samples2) - 1)
 
-    max_len = max(len(y1), len(y2))
+    # Iterate through each element in the first signal
+    for i in range(len(input_samples1)):
+        # Multiply and accumulate the product into the result array
+        for j in range(len(input_samples2)):
+            result_samples[i + j] += input_samples1[i] * input_samples2[j]
 
-    print("Addition of signal 1 + signal 2")
-    SignalSamplesAreEqual("Output\Task_2\Signal1+signal2.txt", 0, result)
+    # Generate the result indices
+    min_index = int( min(input_indices1[0] + input_indices2[0], input_indices1[-1] + input_indices2[-1]))
+    max_index = int(max(input_indices1[0] + input_indices2[0], input_indices1[-1] + input_indices2[-1]))
+    result_indices = range(min_index, max_index + 1)
+
+    ConvTest(result_indices, result_samples)
 
     plot_data(
-        x=x1,
-        y=result,
+        x=result_indices,
+        y=result_samples,
         plot_type="continuous",
-        title="Signal 1 + Signal 2",
+        title="Convolution",
         x_label="Time",
         y_label="Amplitude",
         ax=ax_resultant,
