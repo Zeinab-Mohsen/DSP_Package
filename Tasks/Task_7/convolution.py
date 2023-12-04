@@ -1,12 +1,12 @@
 import tkinter as tk
 from root import root
-from GUI.custom_button import CustomButton
-from GUI.custom_label import CustomLabel
-from Utils.plot_graph import plot_data
-from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from Utils.plot_graph import plot_data
+from GUI.custom_label import CustomLabel
 from Test.Task_7.ConvTest import ConvTest
+from GUI.custom_button import CustomButton
+from Utils.read_signal_file import seperate_file_data
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import sys
 
 sys.path.append("../")
