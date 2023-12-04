@@ -10,6 +10,6 @@ from GUI.Utils.main_frames_manipulation import (
 )
 import GUI.menu
 
-show_correlation_frame()
+show_convolution_frame()
 
 root.mainloop()
