@@ -6,7 +6,8 @@ from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from Test.Task_7.ConvTest import ConvTest
+from Test.Task_8.CompareSignal import Compare_Signals
+import numpy as np
 import sys
 
 sys.path.append("../")
@@ -36,7 +37,23 @@ def browse_button_command(title, ax, canvas):
 
 
 def correlation():
-    pass
+    indices1, values1 = browse_button_command("First Signal", ax_signal1, canvas_signal1)
+    indices2, values2 = browse_button_command("First Signa2", ax_signal2, canvas_signal2)\
+    
+    # correlation logic
+
+    CompareSignals("Output\Task_8\CorrOutput.txt", indices, values)
+
+    plot_data(
+        x=indices,
+        y=values,
+        plot_type="continuous",
+        title="Correlation",
+        x_label="Time",
+        y_label="Amplitude",
+        ax=ax_resultant,
+        canvas=canvas_resultant,
+    )
 
 
 correlation_button = CustomButton(
