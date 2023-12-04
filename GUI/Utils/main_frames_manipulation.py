@@ -25,6 +25,8 @@ from Tasks.Task_6.sharpening import sharpening_frame
 
 from Tasks.Task_7.convolution import convolution_frame
 
+from Tasks.Task_8.correlation import correlation_frame
+
 import sys
 
 sys.path.append("../")
@@ -61,6 +63,8 @@ def show_read_signal_file_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_generate_signal_frame():
     # Show the generate signal frame
@@ -93,6 +97,8 @@ def show_generate_signal_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_accumulation_frame():
     # Show the accumulation frame
@@ -125,6 +131,8 @@ def show_accumulation_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_addition_frame():
     # Show the addition frame
@@ -157,6 +165,8 @@ def show_addition_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_multiplication_frame():
     # Show the multiplication frame
@@ -189,6 +199,8 @@ def show_multiplication_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_normalization_frame():
     # Show the normalization frame
@@ -221,6 +233,8 @@ def show_normalization_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_shifting_frame():
     # Show the shifting frame
@@ -253,6 +267,8 @@ def show_shifting_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_squaring_frame():
     # Show the squaring frame
@@ -285,6 +301,8 @@ def show_squaring_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_subtraction_frame():
     # Show the subtraction frame
@@ -317,6 +335,8 @@ def show_subtraction_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_quantization_frame():
     # Show quantization frame
@@ -348,6 +368,8 @@ def show_quantization_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_task4_frame():
     # Show dft frame
@@ -379,6 +401,8 @@ def show_task4_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_dc_frame():
     # Show dc frame
@@ -411,6 +435,8 @@ def show_dc_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_dct_frame():
     # Show dct frame
@@ -443,6 +469,8 @@ def show_dct_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_delaying_advancing_folding_frame():
     # Show delaying_advancing_folding frame
@@ -480,6 +508,8 @@ def show_delaying_advancing_folding_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_delaying_advancing_frame():
     # Show delaying_advancing frame
@@ -512,6 +542,8 @@ def show_delaying_advancing_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_folding_frame():
     # Show folding frame
@@ -544,6 +576,8 @@ def show_folding_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_moving_average_frame():
     # Show moving_average frame
@@ -576,6 +610,8 @@ def show_moving_average_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_remove_dc_frame():
     # Show remove_dc frame
@@ -608,6 +644,8 @@ def show_remove_dc_frame():
     sharpening_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_sharpening_frame():
     # Show sharpening frame
@@ -640,6 +678,8 @@ def show_sharpening_frame():
     remove_dc_frame.pack_forget()
     # task 7 frames
     convolution_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget()
 
 def show_convolution_frame():
     # Show convolution frame
@@ -671,3 +711,38 @@ def show_convolution_frame():
     moving_average_frame.pack_forget()
     remove_dc_frame.pack_forget()
     sharpening_frame.pack_forget()
+    # task 8 frames
+    correlation_frame.pack_forget() 
+
+def show_correlation_frame():
+    # Show correlation frame
+    correlation_frame.pack()
+
+    # Hide other frames
+    # Task 1 frames
+    read_signal_file_frame.pack_forget()
+    generate_signal_frame.pack_forget()
+    # Task 2 frames
+    accumulation_frame.pack_forget()
+    addition_frame.pack_forget()
+    multiplication_frame.pack_forget()
+    normalization_frame.pack_forget()
+    shifting_frame.pack_forget()
+    squaring_frame.pack_forget()
+    subtraction_frame.pack_forget()
+    # Task 3 frames
+    quantization_frame.pack_forget()
+    # task 4 frames
+    task4_frame.pack_forget()
+    # task 5 frames
+    dct_frame.pack_forget()
+    dc_frame.pack_forget()
+    # task 6 frames
+    delaying_advancing_folding_frame.pack_forget()
+    delaying_advancing_frame.pack_forget()
+    folding_frame.pack_forget()
+    moving_average_frame.pack_forget()
+    remove_dc_frame.pack_forget()
+    sharpening_frame.pack_forget()
+    #task 7 frames
+    convolution_frame.pack_forget()

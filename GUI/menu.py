@@ -21,6 +21,7 @@ from GUI.Utils.main_frames_manipulation import (
     show_delaying_advancing_folding_frame,
     show_remove_dc_frame,
     show_convolution_frame,
+    show_correlation_frame,
 )
 
 
@@ -97,6 +98,10 @@ menubar.add_cascade(label="Task 6", menu=Task_6_menu, font=menu_font)
 Task_7_menu = tk.Menu(menubar, tearoff=0)
 Task_7_menu.add_command(label="Convolution", command=show_convolution_frame, font=item_font)
 menubar.add_cascade(label="Task 7", menu=Task_7_menu, font=menu_font)
+
+Task_8_menu = tk.Menu(menubar, tearoff=0)
+Task_8_menu.add_command(label="Correlation", command=show_correlation_frame, font=item_font)
+menubar.add_cascade(label="Task 8", menu=Task_8_menu, font=menu_font)
 
 
 root.config(menu=menubar)
