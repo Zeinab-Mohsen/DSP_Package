@@ -1,12 +1,12 @@
 import tkinter as tk
 from root import root
-import matplotlib.pyplot as plt
-from Utils.plot_graph import plot_data
-from GUI.custom_label import CustomLabel
-from Test.Task_7.ConvTest import ConvTest
 from GUI.custom_button import CustomButton
+from GUI.custom_label import CustomLabel
+from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
+import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from Test.Task_7.ConvTest import ConvTest
 import sys
 
 sys.path.append("../")
@@ -36,22 +36,24 @@ def browse_button_command(title, ax, canvas):
 
 
 def convolution():
-    input_indices1 , input_samples1 = browse_button_command("First Signal", ax_signal1, canvas_signal1)
-    input_indices2 , input_samples2 = browse_button_command("Second Signal", ax_signal2, canvas_signal2)
-    # Initialize result arrays with zeros
-    result_indices = []
+    input_indices1, input_samples1 = browse_button_command(
+        "First Signal", ax_signal1, canvas_signal1
+    )
+    input_indices2, input_samples2 = browse_button_command(
+        "Second Signal", ax_signal2, canvas_signal2
+    )
+
     result_samples = [0] * (len(input_samples1) + len(input_samples2) - 1)
 
-    # Iterate through each element in the first signal
     for i in range(len(input_samples1)):
-        # Multiply and accumulate the product into the result array
         for j in range(len(input_samples2)):
             result_samples[i + j] += input_samples1[i] * input_samples2[j]
 
-    # Generate the result indices
-    min_index = int( min(input_indices1[0] + input_indices2[0], input_indices1[-1] + input_indices2[-1]))
-    max_index = int(max(input_indices1[0] + input_indices2[0], input_indices1[-1] + input_indices2[-1]))
-    result_indices = range(min_index, max_index + 1)
+
+    result_indices = range(
+        int(min(input_indices1) + min(input_indices2)),
+        int(max(input_indices1) + max(input_indices2) + 1),
+    )
 
     ConvTest(result_indices, result_samples)
 
