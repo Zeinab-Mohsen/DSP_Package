@@ -14,8 +14,44 @@ sys.path.append("../")
 
 correlation_frame = tk.Frame(root)
 
-correlation_label = CustomLabel(correlation_frame, text=" Normalized Cross-Correlation Of Two Signals")
+correlation_label = CustomLabel(
+    correlation_frame, text=" Normalized Cross-Correlation Of Two Signals"
+)
 correlation_label.pack()
+
+
+def cross_correlation(input_signal1, input_signal2, is_periodic):
+    non_normalized_correlation = []
+    normalized_correlation = []
+    normalized_value = 0
+
+    sum_signal1 = np.sum(np.square(input_signal1))
+
+    if input_signal2 is None:  # Auto-Correlation
+        input_signal2_samples = np.copy(input_signal1)
+        normalized_value = np.sqrt(sum_signal1 * sum_signal1) / len(input_signal1)
+    else:  # Cross-Correlation
+        input_signal2_samples = np.copy(input_signal2)
+        sum_signal2 = np.sum(np.square(input_signal2))
+        total = sum_signal1 * sum_signal2
+        normalized_value = np.sqrt(total) / len(input_signal1)
+
+    for _ in range(len(input_signal1)):
+        result = np.sum(input_signal1 * input_signal2_samples)
+        final_result = result / len(input_signal1)
+        non_normalized_correlation.append(final_result)
+        normalized_result = final_result / normalized_value
+        normalized_correlation.append(normalized_result)
+
+        if is_periodic:
+            temp = input_signal2_samples[0]
+            input_signal2_samples[:-1] = input_signal2_samples[1:]
+            input_signal2_samples[-1] = temp
+        else:
+            input_signal2_samples[:-1] = input_signal2_samples[1:]
+            input_signal2_samples[-1] = 0
+
+    return normalized_correlation
 
 
 def browse_button_command(title, ax, canvas):
@@ -33,20 +69,27 @@ def browse_button_command(title, ax, canvas):
         ax=ax,
         canvas=canvas,
     )
-    return x, y
+    return x, y, is_periodic
 
 
 def correlation():
-    indices1, values1 = browse_button_command("First Signal", ax_signal1, canvas_signal1)
-    indices2, values2 = browse_button_command("First Signa2", ax_signal2, canvas_signal2)\
-    
+    indices1, signal1, is_periodic = browse_button_command(
+        "First Signal", ax_signal1, canvas_signal1
+    )
+    indices2, signal2, is_periodic = browse_button_command(
+        "First Signa2", ax_signal2, canvas_signal2
+    )
     # correlation logic
 
-    CompareSignals("Output\Task_8\CorrOutput.txt", indices, values)
+    normalized_correlation = cross_correlation(signal1, signal2, is_periodic)
+
+    print(normalized_correlation)
+
+    Compare_Signals("Output\Task_8\CorrOutput.txt", indices1, normalized_correlation)
 
     plot_data(
-        x=indices,
-        y=values,
+        x=indices1,
+        y=normalized_correlation,
         plot_type="continuous",
         title="Correlation",
         x_label="Time",
@@ -57,7 +100,7 @@ def correlation():
 
 
 correlation_button = CustomButton(
-    correlation_frame, command=correlation, text="Convolve Two Signals"
+    correlation_frame, command=correlation, text="Correlate Two Signals"
 )
 correlation_button.pack(side=tk.TOP, padx=250, pady=10)
 
