@@ -12,12 +12,12 @@ import sys
 
 sys.path.append("../")
 
-correlation_frame = tk.Frame(root)
+fast_correlation_frame = tk.Frame(root)
 
-correlation_label = CustomLabel(
-    correlation_frame, text=" Normalized Cross-Correlation Of Two Signals"
+fast_correlation_label = CustomLabel(
+    fast_correlation_frame, text="Fast Normalized Cross-Correlation Of Two Signals"
 )
-correlation_label.pack()
+fast_correlation_label.pack()
 
 
 def browse_button_command(title, ax, canvas):
@@ -38,7 +38,7 @@ def browse_button_command(title, ax, canvas):
     return x, y
 
 
-def correlation():
+def fast_correlation():
     indices1, input_signal1 = browse_button_command(
         "First Signal", ax_signal1, canvas_signal1
     )
@@ -68,7 +68,7 @@ def correlation():
         normalized_correlation.append(normalized_result)
 
         # Update the second signal samples for the next iteration
-       
+
         temp = input_signal2_samples[0]
         input_signal2_samples[:-1] = input_signal2_samples[1:]
         input_signal2_samples[-1] = temp
@@ -87,13 +87,13 @@ def correlation():
     )
 
 
-correlation_button = CustomButton(
-    correlation_frame, command=correlation, text="Correlate Two Signals"
+fast_correlation_button = CustomButton(
+    fast_correlation_frame, command=fast_correlation, text="Fast Correlate Two Signals"
 )
-correlation_button.pack(side=tk.TOP, padx=250, pady=10)
+fast_correlation_button.pack(side=tk.TOP, padx=250, pady=10)
 
 # Add signal plot frame
-signals_representation_frame = tk.Frame(correlation_frame)
+signals_representation_frame = tk.Frame(fast_correlation_frame)
 signals_representation_frame.pack(padx=15, pady=5)
 
 # Add continuous signal representation frame
@@ -116,7 +116,7 @@ canvas_signal2.get_tk_widget().pack()
 
 
 # Add signal plot frame
-resultant_signal_representation_frame = tk.Frame(correlation_frame)
+resultant_signal_representation_frame = tk.Frame(fast_correlation_frame)
 resultant_signal_representation_frame.pack(padx=2, pady=10, expand=True, fill=tk.BOTH)
 
 # Add empty figure for continuous signal representation

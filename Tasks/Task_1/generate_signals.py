@@ -1,7 +1,7 @@
 import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from Utils.generate_signals import generate_sin_signal, generate_cos_signal
-from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
+from Test.Task_1.comparesignals import SignalSamplesAreEqual
 import matplotlib.pyplot as plt
 from GUI.labeled_entry import LabeledEntry
 from GUI.custom_button import CustomButton
@@ -156,7 +156,7 @@ def generate_signals(ax, canvas, plot_type):
                 ax=ax,
                 canvas=canvas,
             )
-            SignalSamplesAreEqual("Output\Sin_Cos\SinOutput.txt", 0, sin_signal)
+            SignalSamplesAreEqual("Output\Task_1\SinOutput.txt", 0, sin_signal)
         elif sin_or_cos == 2:
             cos_signal = generate_cos_signal(
                 amplitude_value,
@@ -167,7 +167,7 @@ def generate_signals(ax, canvas, plot_type):
                 ax=ax,
                 canvas=canvas,
             )
-            SignalSamplesAreEqual("Output\Sin_Cos\CosOutput.txt", 0, cos_signal)
+            SignalSamplesAreEqual("Output\Task_1\CosOutput.txt", 0, cos_signal)
         else:
             tk.messagebox.showerror("Error", f"Choose the signal type")
             return

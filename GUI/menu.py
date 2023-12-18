@@ -22,6 +22,8 @@ from GUI.Utils.main_frames_manipulation import (
     show_remove_dc_frame,
     show_convolution_frame,
     show_correlation_frame,
+    show_fast_correlation_frame,
+    show_fast_convolution_frame,
 )
 
 
@@ -102,6 +104,11 @@ menubar.add_cascade(label="Task 7", menu=Task_7_menu, font=menu_font)
 Task_8_menu = tk.Menu(menubar, tearoff=0)
 Task_8_menu.add_command(label="Correlation", command=show_correlation_frame, font=item_font)
 menubar.add_cascade(label="Task 8", menu=Task_8_menu, font=menu_font)
+
+Task_9_menu = tk.Menu(menubar, tearoff=0)
+Task_9_menu.add_command(label="Fast Correlation", command=show_fast_correlation_frame, font=item_font)
+Task_9_menu.add_command(label="Fast Convolution", command=show_fast_convolution_frame, font=item_font)
+menubar.add_cascade(label="Task 9", menu=Task_9_menu, font=menu_font)
 
 
 root.config(menu=menubar)

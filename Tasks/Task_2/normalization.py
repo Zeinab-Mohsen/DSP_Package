@@ -6,7 +6,7 @@ from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
+from Test.Task_1.comparesignals import SignalSamplesAreEqual
 from GUI.labeled_entry import LabeledEntry
 from GUI.Utils.entry_validation import validate_num
 import sys
@@ -19,6 +19,7 @@ normalization_label = CustomLabel(normalization_frame, text="Normalization")
 normalization_label.pack()
 
 validate_func = normalization_frame.register(validate_num)
+
 
 def browse_button_command(title, ax, canvas):
     data, signal_type, is_periodic, n_samples = seperate_file_data()
@@ -53,7 +54,6 @@ def get_values():
 def normalizing_signals():
     a, b = get_values()
 
-
     data = browse_button_command("Signal", ax, canvas)
     x1 = [point[0] for point in data]
     y1 = [point[1] for point in data]
@@ -63,7 +63,9 @@ def normalizing_signals():
     result = [(x - min_value) / (max_value - min_value) * (b - a) + a for x in y1]
 
     print("Normalizing signal 1")
-    SignalSamplesAreEqual("Output\Task_2\\normalize of signal 1 -- output.txt", 0, result)
+    SignalSamplesAreEqual(
+        "Output\Task_2\\normalize of signal 1 -- output.txt", 0, result
+    )
 
     print("Normalizing signal 2")
     SignalSamplesAreEqual("Output\Task_2\\normlize signal 2 -- output.txt", 0, result)

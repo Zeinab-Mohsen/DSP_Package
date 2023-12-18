@@ -6,7 +6,7 @@ from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
+from Test.Task_1.comparesignals import SignalSamplesAreEqual
 import sys
 
 sys.path.append("../")

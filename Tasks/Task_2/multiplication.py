@@ -6,7 +6,7 @@ from Utils.plot_graph import plot_data
 from Utils.read_signal_file import seperate_file_data
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from Test.Sin_Cos.comparesignals import SignalSamplesAreEqual
+from Test.Task_1.comparesignals import SignalSamplesAreEqual
 from GUI.labeled_entry import LabeledEntry
 from GUI.Utils.entry_validation import validate_num
 import sys
@@ -19,6 +19,7 @@ multiplication_label = CustomLabel(multiplication_frame, text="Multiplication")
 multiplication_label.pack()
 
 validate_func = multiplication_frame.register(validate_num)
+
 
 def browse_button_command(title, ax, canvas):
     data, signal_type, is_periodic, n_samples = seperate_file_data()
@@ -47,6 +48,7 @@ def get_values():
 
     return multiplication
 
+
 def subtract_signals():
     multiplier = get_values()
     if multiplier is None:
@@ -58,10 +60,14 @@ def subtract_signals():
     result = [x * multiplier for x in y1]
 
     print("Multiply signal 1 by 5")
-    SignalSamplesAreEqual("Output\Task_2\MultiplySignalByConstant-Signal1 - by 5.txt", 0, result)
+    SignalSamplesAreEqual(
+        "Output\Task_2\MultiplySignalByConstant-Signal1 - by 5.txt", 0, result
+    )
 
     print("Multiply signal 2 by 10")
-    SignalSamplesAreEqual("Output\Task_2\MultiplySignalByConstant-signal2 - by 10.txt", 0, result)
+    SignalSamplesAreEqual(
+        "Output\Task_2\MultiplySignalByConstant-signal2 - by 10.txt", 0, result
+    )
 
     plot_data(
         x=x1,
