@@ -5,18 +5,17 @@ import matplotlib.pyplot as plt
 from Utils.plot_graph import plot_data
 from GUI.custom_label import CustomLabel
 from GUI.custom_button import CustomButton
-from Test.Task_8.CompareSignal import Compare_Signals
+from Test.Task_9.CompareSignal import Compare_Signals
 from Utils.read_signal_file import seperate_file_data
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from Tasks.Task_4.DFT_IDFT import dft, idft
 import sys
 
 sys.path.append("../")
 
 fast_correlation_frame = tk.Frame(root)
 
-fast_correlation_label = CustomLabel(
-    fast_correlation_frame, text="Fast Normalized Cross-Correlation Of Two Signals"
-)
+fast_correlation_label = CustomLabel(fast_correlation_frame, text="Fast Correlation")
 fast_correlation_label.pack()
 
 
@@ -39,45 +38,44 @@ def browse_button_command(title, ax, canvas):
 
 
 def fast_correlation():
-    indices1, input_signal1 = browse_button_command(
+    input_indices1, input_samples1 = browse_button_command(
         "First Signal", ax_signal1, canvas_signal1
     )
-    indices2, input_signal2 = browse_button_command(
+    input_indices2, input_samples2 = browse_button_command(
         "Second Signal", ax_signal2, canvas_signal2
     )
 
-    # Cross-Correlation
-    normalized_correlation = []
+    if len(input_samples1) != len(input_samples2):
+        output_length = len(input_samples1) + len(input_samples2) - 1
 
-    input_signal2_samples = np.copy(input_signal2)
+        input_samples1 = np.pad(
+            input_samples1, (0, output_length - len(input_samples1)), mode="constant"
+        )
+        input_samples2 = np.pad(
+            input_samples2, (0, output_length - len(input_samples2)), mode="constant"
+        )
 
-    total = np.sum(np.square(input_signal1)) * np.sum(np.square(input_signal2))
-    normalized_value = np.sqrt(total) / len(input_signal1)
+    result_samples = []
 
-    # Iterate over each element of the first signal
-    for _ in range(len(input_signal1)):
-        # Calculate the cross-correlation result
-        result = np.sum(input_signal1 * input_signal2_samples)
+    input_samples1 = dft(input_samples1)
+    input_samples2 = dft(input_samples2)
 
-        # Calculate the final result (divide by the length of the signal)
-        final_result = result / len(input_signal1)
+    input_samples1 = np.conjugate(input_samples1)
 
-        # Calculate the normalized result (divide by the normalized value)
-        normalized_result = final_result / normalized_value
+    for i in range(len(input_samples1)):
+        result_samples.append(input_samples1[i] * input_samples2[i])
 
-        normalized_correlation.append(normalized_result)
+    result_samples = idft(result_samples)
 
-        # Update the second signal samples for the next iteration
+    if sorted(input_samples1) != sorted(input_samples2):
+        for i in range(len(result_samples)):
+            result_samples[i] = result_samples[i] / len(result_samples)
 
-        temp = input_signal2_samples[0]
-        input_signal2_samples[:-1] = input_signal2_samples[1:]
-        input_signal2_samples[-1] = temp
-
-    Compare_Signals("Output\Task_8\CorrOutput.txt", indices1, normalized_correlation)
+    Compare_Signals("Output\Task_9\Corr_Output.txt", input_indices1, result_samples)
 
     plot_data(
-        x=indices1,
-        y=normalized_correlation,
+        x=input_indices1,
+        y=result_samples,
         plot_type="continuous",
         title="Correlation",
         x_label="Time",

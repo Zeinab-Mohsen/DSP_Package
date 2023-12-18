@@ -46,8 +46,8 @@ def fast_convolution():
     input_indices2, input_samples2 = browse_button_command(
         "Second Signal", ax_signal2, canvas_signal2
     )
-    
-    output_length = len(input_samples1) + len(input_samples2) - 1 
+
+    output_length = len(input_samples1) + len(input_samples2) - 1
 
     input_samples1 = np.pad(
         input_samples1, (0, output_length - len(input_samples1)), mode="constant"
@@ -77,7 +77,7 @@ def fast_convolution():
         x=result_indices,
         y=result_samples,
         plot_type="continuous",
-        title="Convolution",
+        title="Fast Convolution",
         x_label="Time",
         y_label="Amplitude",
         ax=ax_resultant,
