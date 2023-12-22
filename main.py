@@ -7,9 +7,10 @@ from GUI.Utils.main_frames_manipulation import (
     show_moving_average_frame,
     show_convolution_frame,
     show_correlation_frame,
+    show_fast_convolution_frame,
 )
 import GUI.menu
 
-show_correlation_frame()
+show_fast_convolution_frame()
 
 root.mainloop()

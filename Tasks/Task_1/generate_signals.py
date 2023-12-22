@@ -142,7 +142,7 @@ def generate_signals(ax, canvas, plot_type):
         analog_frequency_value,
         sampling_frequency_value,
     ) = get_values()
-
+    # Fs > 2F
     if sampling_frequency_value >= (2 * analog_frequency_value):
         sin_or_cos = get_selected_option()
 
