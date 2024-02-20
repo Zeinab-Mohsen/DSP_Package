@@ -3,7 +3,8 @@
 **This package is collective of a weekly assignments for the digital signal processing course**
 
 
-### In this package, you will find functions and the GUI for:
+
+### In this package, you will find input and output signals, test functions, GUI, and functions implementation for the following operations:
 
 1- Generating Sinsudial and Cosinsodial signals.
 
@@ -28,6 +29,8 @@
 11- Folding a signal.
 
 12- Apply filters on the signal by the moving average and sharpening filter.
+
+
 
 13- Applying convolution and correlation.
 
