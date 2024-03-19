@@ -9,7 +9,6 @@ from GUI.custom_label import CustomLabel
 from GUI.Utils.entry_validation import validate_num
 from root import root
 
-
 generate_signal_frame = tk.Frame(root)
 
 validate_func = generate_signal_frame.register(validate_num)
@@ -100,7 +99,7 @@ def get_values():
     )
 
 
-# Add signal plot frame
+# Add signal plot frames
 signals_generation_representation_frame = tk.Frame(generate_signal_frame)
 signals_generation_representation_frame.pack(padx=2, pady=10, expand=True, fill=tk.BOTH)
 signals_generation_representation_frame.grid_rowconfigure(0, weight=1)
